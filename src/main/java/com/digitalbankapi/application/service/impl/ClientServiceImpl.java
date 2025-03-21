@@ -53,7 +53,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientResponseDTO getClientById(Long id) {
-        Client client = clientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente com ID " + id + " não encontrado"));
+        Client client = clientRepository.findById(id).orElseThrow(()
+                -> new IllegalArgumentException("Cliente com ID " + id + " não encontrado"));
         return mapToResponseDTO(client);
     }
 
@@ -68,6 +69,6 @@ public class ClientServiceImpl implements ClientService {
     }
 
     private ClientResponseDTO mapToResponseDTO(Client client) {
-        return new ClientResponseDTO(client.getId(), client.getName(), LocalDateTime.now());
+        return new ClientResponseDTO(client.getId(), client.getName());
     }
 }

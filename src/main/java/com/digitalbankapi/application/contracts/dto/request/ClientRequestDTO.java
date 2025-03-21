@@ -9,6 +9,8 @@ import jakarta.validation.constraints.Email;
 import java.time.LocalDate;
 
 public record ClientRequestDTO(
+        Long id,
+
         @NotBlank(message = "Nome completo não pode ser vazio")
         String name,
 

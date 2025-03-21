@@ -1,6 +1,9 @@
 package com.digitalbankapi.application.contracts.dto.response;
 
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
-public record ClientResponseDTO(Long id, String name, LocalDateTime createdAt) {
+@Builder
+public record ClientResponseDTO(Long id, String name) {
 }
