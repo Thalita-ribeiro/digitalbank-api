@@ -1,8 +1,20 @@
 package com.digitalbankapi.domain.entities;
 
 import com.digitalbankapi.domain.model.AccountType;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import lombok.Data;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,8 +26,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 public class Account implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -42,13 +55,4 @@ public class Account implements Serializable {
 
     @Column(name = "creation_date")
     private LocalDateTime creationDate;
-
-    public Account(Long id, AccountType accountType, BigDecimal balance, String agency, String number, Client client) {
-        this.id = id;
-        this.accountType = accountType;
-        this.balance = balance;
-        this.agency = agency;
-        this.number = number;
-        this.client = client;
-    }
 }

@@ -5,7 +5,6 @@ import com.digitalbankapi.domain.model.AccountType;
 import lombok.Builder;
 
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Builder
 public record AccountDTO(
@@ -13,8 +12,6 @@ public record AccountDTO(
 
         @NotNull(message = "O tipo de conta não pode ser nulo")
         AccountType accountType,
-
-        BigDecimal balance,
 
         @NotNull(message = "A agência não pode ser nula")
         String agency,
