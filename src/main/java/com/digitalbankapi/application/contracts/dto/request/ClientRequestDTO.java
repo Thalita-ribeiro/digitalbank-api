@@ -5,9 +5,11 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
+@Builder
 public record ClientRequestDTO(
         Long id,
 

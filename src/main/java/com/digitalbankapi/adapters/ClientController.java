@@ -3,7 +3,7 @@ package com.digitalbankapi.adapters;
 import com.digitalbankapi.application.contracts.dto.request.ClientRequestDTO;
 import com.digitalbankapi.application.contracts.dto.response.ClientResponseDTO;
 import com.digitalbankapi.application.service.ClientService;
-import com.digitalbankapi.domain.exceptions.InvalidAgeException;
+import com.digitalbankapi.domain.exceptions.InvalidClientException;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.BadRequestException;
 import org.slf4j.Logger;
@@ -32,7 +32,7 @@ public class ClientController {
         } catch (IllegalArgumentException e) {
             logger.error("Invalid client data: {}", e.getMessage());
             throw new BadRequestException(e.getMessage());
-        } catch (InvalidAgeException e) {
+        } catch (InvalidClientException e) {
             logger.error("Invalid age: {}", e.getMessage());
             throw new BadRequestException(e.getMessage());
         }
